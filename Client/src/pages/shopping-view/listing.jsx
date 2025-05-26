@@ -6,4 +6,4 @@ const listing = () => {
   )
 }
 
-export default listning;
+export default listing;

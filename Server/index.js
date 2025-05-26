@@ -4,6 +4,8 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const dotenv = require('dotenv');
 
+const authRoutes = require("./routes/auth/auth-routes");
+
 
 dotenv.config();
 
@@ -16,7 +18,7 @@ mongoose.connect(mongoUrl)
   .then(() => console.log('MongoDB connected successfully!'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-  app.use(
+app.use(
   cors({
     origin: "http://localhost:5173",
     methods: ["GET", "POST", "DELETE", "PUT"],
@@ -33,5 +35,7 @@ mongoose.connect(mongoUrl)
 
 app.use(cookieParser());
 app.use(express.json());
+
+app.use("/api/auth", authRoutes);
 
 app.listen(port, () => console.log(`Server is running on ${port}`));
