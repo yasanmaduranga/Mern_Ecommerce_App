@@ -95,3 +95,46 @@ export const addProductFormElements = [
     placeholder: "Enter total stock",
   },
 ];
+
+export const shoppingViewHeaderMenuItems = [
+  {
+    id: "home",
+    label: "Home",
+    path: "/shop/home",
+  },
+  {
+    id: "products",
+    label: "Products",
+    path: "/shop/listing",
+  },
+  {
+    id: "men",
+    label: "Men",
+    path: "/shop/listing",
+  },
+  {
+    id: "women",
+    label: "Women",
+    path: "/shop/listing",
+  }
+];
+
+export const filterOptions = {
+  category: [
+    { id: "men", label: "Men" },
+    { id: "women", label: "Women" },
+  ],
+  brand: [
+    { id: "asos", label: "ASOS" },
+    { id: "ganni", label: "GANNI" },
+    { id: "h&m", label: "H&M" },
+    { id: "levi", label: "Levi's" }
+  ],
+};
+
+export const sortOptions = [
+  { id: "price-lowtohigh", label: "Price: Low to High" },
+  { id: "price-hightolow", label: "Price: High to Low" },
+  { id: "title-atoz", label: "Title: A to Z" },
+  { id: "title-ztoa", label: "Title: Z to A" },
+];

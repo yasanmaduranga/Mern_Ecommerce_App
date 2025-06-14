@@ -13,5 +13,6 @@ router.get("/check-auth", authMiddleware, (req, res) => {
     user,
   });
 });
+router.post("/logout", logoutUser);
 
 module.exports = router;
