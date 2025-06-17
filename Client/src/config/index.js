@@ -69,7 +69,7 @@ export const addProductFormElements = [
     options: [
       { id: "asos", label: "ASOS" },
       { id: "ganni", label: "GANNI" },
-      { id: "levi", label: "Levi's" },
+      { id: "levi", label: "Levi" },
       { id: "h&m", label: "H&M" },
     ],
   },
@@ -119,6 +119,18 @@ export const shoppingViewHeaderMenuItems = [
   }
 ];
 
+export const categoryOptionsMap = {
+  men: "Men",
+  women: "Women",
+};
+
+export const brandOptionsMap = {
+  asos: "Asos",
+  ganni: "Ganni",
+  "h&m": "H&M",
+  levi: "Levi",
+};
+
 export const filterOptions = {
   category: [
     { id: "men", label: "Men" },
@@ -128,7 +140,7 @@ export const filterOptions = {
     { id: "asos", label: "ASOS" },
     { id: "ganni", label: "GANNI" },
     { id: "h&m", label: "H&M" },
-    { id: "levi", label: "Levi's" }
+    { id: "levi", label: "Levi" }
   ],
 };
 
