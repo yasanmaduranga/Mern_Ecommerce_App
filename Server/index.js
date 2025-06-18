@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const authRoutes = require("./routes/auth/auth-routes");
 const adminProductsRouter = require("./routes/admin/products-routes");
 const shoppingProductsRouter = require("./routes/shop/product-routes");
+const shopCartRouter = require("./routes/shop/cart-routes");
 
 
 dotenv.config();
@@ -41,5 +42,6 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/shop/products", shoppingProductsRouter);
+app.use("/api/shop/cart", shopCartRouter);
 
 app.listen(port, () => console.log(`Server is running on ${port}`));
