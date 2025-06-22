@@ -5,10 +5,32 @@ import { Separator } from "../ui/separator";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
+import { toast } from "sonner";
 
 const productDetails = ({ open, setOpen, productDetails }) => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+
   function handleDialogClose() {
     setOpen(false);
+    dispatch(setProductDetails());
+  }
+
+  function handleAddToCart(getCurrentProductId, getTotalStock) {
+    dispatch(
+      addToCart({
+        userId: user?.id,
+        productId: getCurrentProductId,
+        quantity: 1,
+      })
+    ).then((data) => {
+      if (data?.payload?.success) {
+        dispatch(fetchCartItems(user?.id));
+        toast.success("Product is succesfully added to the cart");
+      }
+    });
   }
 
   return (
@@ -54,7 +76,12 @@ const productDetails = ({ open, setOpen, productDetails }) => {
                 Out of Stock
               </Button>
             ) : (
-              <Button className="w-full">Add to Cart</Button>
+              <Button
+                onClick={() => handleAddToCart(productDetails?._id)}
+                className="w-full"
+              >
+                Add to Cart
+              </Button>
             )}
           </div>
           <Separator />
