@@ -4,7 +4,7 @@ import { SheetContent, SheetHeader, SheetTitle } from "../ui/sheet";
 import { Button } from "../ui/button";
 import UserCartItemsContent from "./cart-items-content";
 
-const UserCartWrapper = ({ cartItems }) => {
+const UserCartWrapper = ({ cartItems, setOpenCartSheet }) => {
   const navigate = useNavigate();
 
   const totalCartAmount =
@@ -37,7 +37,15 @@ const UserCartWrapper = ({ cartItems }) => {
         </div>
       </div>
       <div className="w-full p-6">
-        <Button className="w-full mt-6">Checkout</Button>
+        <Button
+          onClick={() => {
+            navigate("/shop/checkout");
+            setOpenCartSheet(false);
+          }}
+          className="w-full mt-6"
+        >
+          Checkout
+        </Button>
       </div>
     </SheetContent>
   );

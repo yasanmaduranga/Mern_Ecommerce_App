@@ -8,6 +8,7 @@ import { Input } from "../ui/input";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
 import { toast } from "sonner";
+import { setProductDetails } from "@/store/shop/products-slice";
 
 const productDetails = ({ open, setOpen, productDetails }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const productDetails = ({ open, setOpen, productDetails }) => {
   function handleDialogClose() {
     setOpen(false);
     dispatch(setProductDetails());
-  }
+  };
 
   function handleAddToCart(getCurrentProductId, getTotalStock) {
     dispatch(
@@ -31,7 +32,7 @@ const productDetails = ({ open, setOpen, productDetails }) => {
         toast.success("Product is succesfully added to the cart");
       }
     });
-  }
+  };
 
   return (
     <Dialog open={open} onOpenChange={handleDialogClose}>
