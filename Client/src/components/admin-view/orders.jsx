@@ -11,31 +11,33 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import ShoppingOrderDetailsView from "./order-details";
+import AdminOrderDetailsView from "./order-details";
 import { useDispatch, useSelector } from "react-redux";
 import { Badge } from "../ui/badge";
 
-const ShoppingOrders = () => {
+const AdminOrders = () => {
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Order History</CardTitle>
+        <CardTitle>All Orders</CardTitle>
       </CardHeader>
+
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Order ID</TableHead>
-              <TableHead>Order Date</TableHead>
-              <TableHead>Order Status</TableHead>
-              <TableHead>Order Price</TableHead>
-              <TableHead>
+              <TableHead className="text-left">Order ID</TableHead>
+              <TableHead className="text-left">Order Date</TableHead>
+              <TableHead className="text-left">Order Status</TableHead>
+              <TableHead className="text-left">Order Price</TableHead>
+              <TableHead className="text-left">
                 <span className="sr-only">Details</span>
               </TableHead>
             </TableRow>
           </TableHeader>
+
           <TableBody>
             <TableRow>
               <TableCell className="text-left">111111</TableCell>
@@ -49,10 +51,12 @@ const ShoppingOrders = () => {
                   open={openDetailsDialog}
                   onOpenChange={setOpenDetailsDialog}
                 >
-                  <Button onClick={() => setOpenDetailsDialog(true)}>
+                  <Button
+                    onClick={() => setOpenDetailsDialog(true)}
+                  >
                     View Details
                   </Button>
-                  <ShoppingOrderDetailsView />
+                  <AdminOrderDetailsView />
                 </Dialog>
               </TableCell>
             </TableRow>
@@ -63,4 +67,4 @@ const ShoppingOrders = () => {
   );
 };
 
-export default ShoppingOrders;
+export default AdminOrders;
